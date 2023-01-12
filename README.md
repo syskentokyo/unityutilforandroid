@@ -1,0 +1,2 @@
+# unityutilforandroid
+UnityのAndroidプラットフォーム向けのユーティリティ
