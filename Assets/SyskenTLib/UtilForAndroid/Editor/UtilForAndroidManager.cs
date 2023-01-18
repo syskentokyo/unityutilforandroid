@@ -20,6 +20,7 @@ namespace SyskenTLib.UtilForAndroid.Editor
 
         public void ADB_ChangeTCPIPMode()
         {
+            #if UNITY_EDITOR_OSX
             string command = "-c \'" +GetADBPath() + " tcpip 5555"+"\'";
             
             Process process = new Process();
@@ -35,10 +36,13 @@ namespace SyskenTLib.UtilForAndroid.Editor
             process.Close();
 
             UnityEngine.Debug.Log(output);
+            #elif  UNITY_EDITOR_WIN
+            #endif
         }
         
         public void ADB_ConnectToAndroidDevice(string ipaddress,string port)
         {
+#if UNITY_EDITOR_OSX
             string command = "-c '" +GetADBPath()+ " connect "+ ipaddress +":"+port+"'";
             
             Process process = new Process();
@@ -55,6 +59,9 @@ namespace SyskenTLib.UtilForAndroid.Editor
             
             UnityEngine.Debug.Log(command);
             UnityEngine.Debug.Log(output);
+#elif  UNITY_EDITOR_WIN
+
+#endif
         }
     }
 }
