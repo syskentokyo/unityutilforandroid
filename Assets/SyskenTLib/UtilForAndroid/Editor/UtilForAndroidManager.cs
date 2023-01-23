@@ -37,7 +37,7 @@ namespace SyskenTLib.UtilForAndroid.Editor
 
             UnityEngine.Debug.Log(output);
             #elif  UNITY_EDITOR_WIN
-            string command = "/k \"" +GetADBPath() + ".exe\"  tcpip 5555"+"";
+            string command = "/c \"" +GetADBPath() + ".exe\"  tcpip 5555"+"";
             
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -75,7 +75,7 @@ namespace SyskenTLib.UtilForAndroid.Editor
             UnityEngine.Debug.Log(command);
             UnityEngine.Debug.Log(output);
 #elif  UNITY_EDITOR_WIN
-            string command = "/k \"" +GetADBPath()+ ".exe\"  connect "+ ipaddress +":"+port+"";
+            string command = "/c \"" +GetADBPath()+ ".exe\"  connect "+ ipaddress +":"+port+"";
             
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
