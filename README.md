@@ -6,7 +6,7 @@
 
 # about
 
-このライブラリは、UntiyのAndroidSDKのADBコマンドをつかって、WIFI軽油でAndroid端末へ接続します
+このライブラリは、UntiyのAndroidSDKのADBコマンドをつかって、WIFI経由でAndroid端末へ接続します
 
 
 
