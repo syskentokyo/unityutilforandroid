@@ -8,8 +8,8 @@ namespace SyskenTLib.UtilForAndroid.Editor.window
         
 
         private string androidAdbPath = "";
-        private string currentIPAddress = "";
-        private string currentPort = "";
+        private string currentIPAddress = "192.168.0.0";
+        private string currentPort = "40000";
         
         [MenuItem("SyskenTLib/UtilForAndroid/Connect Device On WIFI",priority = 10)]
         private static void ShowWindow()
