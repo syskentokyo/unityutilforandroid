@@ -3,40 +3,38 @@ using UnityEngine;
 
 namespace SyskenTLib.UtilForAndroid.Editor.window
 {
-    public class SettingWindow : EditorWindow
+    public class ConnectOnWIFISettingWindow : EditorWindow
     {
         
-        private bool isMustUpdate = true;
 
         private string androidAdbPath = "";
         private string currentIPAddress = "";
         private string currentPort = "";
         
-        [MenuItem("SyskenTLib/UtilForAndroid/Setting",priority = 10)]
+        [MenuItem("SyskenTLib/UtilForAndroid/Connect Device On WIFI",priority = 10)]
         private static void ShowWindow()
         {
-            var window = GetWindow<SettingWindow>();
-            window.titleContent = new GUIContent("UtilForAndroid - Setting");
+            var window = GetWindow<ConnectOnWIFISettingWindow>();
+            window.titleContent = new GUIContent("UtilForAndroid - ConnectOnDeviceWIFI");
+            
+            //パス設定
+            UtilForAndroidManager _utilForAndroidManager = new UtilForAndroidManager();
+            window.SetAndroidSDKPath( _utilForAndroidManager.GetADBPath());
+            
             window.Show();
+        }
+
+        public void SetAndroidSDKPath(string newPath)
+        {
+            androidAdbPath = newPath;
         }
 
         private void OnGUI()
         {
-            if (isMustUpdate)
-            {
-                UtilForAndroidManager _utilForAndroidManager = new UtilForAndroidManager();
-                androidAdbPath = _utilForAndroidManager.GetADBPath();
-                isMustUpdate = false;
-            }
             
             
             
             EditorGUILayout.BeginVertical("Box");
-            if (GUILayout.Button("Update View"))
-            {
-                //表示更新
-                isMustUpdate = true;
-            }
             
             EditorGUILayout.LabelField("Android SDK ADB Path");
             EditorGUILayout.TextArea(androidAdbPath);
