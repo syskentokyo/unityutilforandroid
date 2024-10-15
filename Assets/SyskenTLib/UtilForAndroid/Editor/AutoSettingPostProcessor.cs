@@ -13,6 +13,10 @@ namespace SyskenTLib.UtilForAndroid.Editor
 
             if (buildTarget == BuildTarget.Android)
             {
+                
+                //
+                // パス系を控える処理
+                //
                 Debug.Log("APKパス："+path);
 
                 UtilForAndroidManager utilForAndroidManager = new UtilForAndroidManager();
@@ -22,6 +26,15 @@ namespace SyskenTLib.UtilForAndroid.Editor
                 string currentAppID = PlayerSettings.GetApplicationIdentifier(BuildTargetGroup.Android);
                 Debug.Log("APKのアプリID："+currentAppID);
                 utilForAndroidManager.SaveLastBuildAppID(currentAppID);
+                
+                
+                //
+                // ビルド時の処理開始
+                //
+                AndroidBuildManager androidBuildManager = new AndroidBuildManager();
+                androidBuildManager.StartBuildCustom();
+                
+                
             }
         }
     }
