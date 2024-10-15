@@ -49,7 +49,8 @@ namespace SyskenTLib.UtilForAndroid.Editor
                 
                 PlayerSettings.Android.bundleVersionCode = nextBundleVersion;;
                 savedJSONConfig._bundleVersion = nextBundleVersion;
-
+                savedJSONConfig._updateDateTxt =  DateTime.Now.ToLocalTime().ToString("yyyy/MM/dd_HH:mm:ss");
+                
                 //保存
                 SaveAndroidUtilJSONConfig(savedJSONConfig);
                 
