@@ -18,6 +18,25 @@ namespace SyskenTLib.UtilForAndroid.Editor
             Debug.Log("OnPreprocessBuild　バンドルバージョンの処理");
             if (report.summary.platform == BuildTarget.Android)
             {
+                //
+                // ビルド時の処理開始
+                //
+                AndroidBuildManager androidBuildManager = new AndroidBuildManager();
+                androidBuildManager.StartBuildCustom();
+
+            }
+        }
+        
+        /// <summary>
+        /// ビルド後
+        /// </summary>
+        /// <param name="report"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void OnPostprocessBuild(BuildReport report)
+        {
+            Debug.Log("OnPreprocessBuild　バンドルバージョンの処理");
+            if (report.summary.platform == BuildTarget.Android)
+            {
                 
                 //
                 // パス系を控える処理
@@ -33,23 +52,10 @@ namespace SyskenTLib.UtilForAndroid.Editor
                 utilForAndroidManager.SaveLastBuildAppID(currentAppID);
                 
                 
-                //
-                // ビルド時の処理開始
-                //
-                AndroidBuildManager androidBuildManager = new AndroidBuildManager();
-                androidBuildManager.StartBuildCustom();
+                Debug.Log("バンドルバージョン = " + PlayerSettings.Android.bundleVersionCode);
                 
-                AssetDatabase.Refresh (); // アセットDBの更新
+                // AssetDatabase.Refresh (); // アセットDBの更新
             }
-        }
-        
-        /// <summary>
-        /// ビルド後
-        /// </summary>
-        /// <param name="report"></param>
-        /// <exception cref="NotImplementedException"></exception>
-        public void OnPostprocessBuild(BuildReport report)
-        {
         }
 
     }
