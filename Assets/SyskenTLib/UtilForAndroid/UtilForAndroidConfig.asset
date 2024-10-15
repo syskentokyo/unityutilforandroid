@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c643bab7114495d978525a7c88bf74c, type: 3}
   m_Name: UtilForAndroidConfig
   m_EditorClassIdentifier: 
+  _selectStorageType: 1
+  _isEnableAutoUpBundleVersionOnBuild: 1
